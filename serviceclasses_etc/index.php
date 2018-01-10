@@ -1,7 +1,11 @@
 <?php
 require __DIR__.'/bootstrap.php';
 
-$shipLoader = new shipLoader();
+$shipLoader = new shipLoader(
+    $configuration['db_dsn'],
+    $configuration['db_user'],
+    $configuration['db_pass']
+);
 $ships = $shipLoader->getShips();
 // var_dump($ships);die;
 
