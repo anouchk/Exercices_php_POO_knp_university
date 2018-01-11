@@ -3,16 +3,16 @@
 /*
  * SETTINGS!
  */
-$databaseName = 'oo_battle';
+$databaseName = 'oo_battle_2';
 $databaseUser = 'root';
-$databasePassword = '';
+$databasePassword = 'root';
 
 /*
  * CREATE THE DATABASE
  */
 $pdoDatabase = new PDO('mysql:host=localhost', $databaseUser, $databasePassword);
 $pdoDatabase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$pdoDatabase->exec('CREATE DATABASE IF NOT EXISTS oo_battle');
+$pdoDatabase->exec('CREATE DATABASE IF NOT EXISTS oo_battle_2');
 
 /*
  * CREATE THE TABLE
