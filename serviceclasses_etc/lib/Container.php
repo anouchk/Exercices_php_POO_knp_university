@@ -6,6 +6,8 @@ class Container {
 
 	private  $pdo;
 
+	private $shipLoader;
+
 	public function __construct (array $configuration) {
 			$this->configuration = $configuration ;
 	}
@@ -23,6 +25,17 @@ class Container {
 		}
 
 		return $this->pdo;
+	}
+
+	public function getShipLoader() {
+
+		if ($this->shipLoader === null) {
+
+			$this->shipLoader = new ShipLoader ($this->getPDO());
+			    
+		}
+
+		return $this->shipLoader;
 	}
 
 }
