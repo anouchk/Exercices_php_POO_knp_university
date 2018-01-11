@@ -4,9 +4,11 @@ class Container {
 
 	private $configuration;
 
-	private  $pdo;
+	private $pdo;
 
 	private $shipLoader;
+
+	private $battleManager;
 
 	public function __construct (array $configuration) {
 			$this->configuration = $configuration ;
@@ -36,6 +38,18 @@ class Container {
 		}
 
 		return $this->shipLoader;
+	}
+
+	public function getBattleManager() {
+
+		if ($this->battleManager === null) {
+
+			$this->battleManager = new BattleManager;
+			    
+		}
+
+		return $this->battleManager;
+
 	}
 
 }
