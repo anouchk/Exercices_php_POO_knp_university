@@ -8,7 +8,7 @@ require_once __DIR__.'/lib/Service/ShipLoader.php';
 require_once __DIR__.'/lib/Model/BattleResult.php';
 
 $configuration = array(
-    'db_dsn'  => 'mysql:host=localhost;dbname=oo_battle_2',
+    'db_dsn'  => 'mysql:host=localhost; dbname=oo_battle_2',
     'db_user' => 'root',
     'db_pass' => 'root',
 );

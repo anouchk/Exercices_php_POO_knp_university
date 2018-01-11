@@ -131,4 +131,12 @@ class Ship
     {
         $this->id = $id;
     }
+
+    /**
+     * @param string 
+     */
+    public function getType()
+    {
+        return 'Empire';
+    }
 }
