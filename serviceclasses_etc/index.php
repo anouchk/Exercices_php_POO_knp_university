@@ -1,6 +1,9 @@
 <?php
 require __DIR__.'/bootstrap.php';
 
+$container = new Container();
+$pdo-> $container->getPDO();
+
 $pdo = new PDO (
     $configuration['db_dsn'],
     $configuration['db_user'],
