@@ -2,9 +2,12 @@
 require __DIR__.'/bootstrap.php';
 
 $container = new Container($configuration);
-
 $shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
+
+$rebelShip = new RebelShip('My new rebel ship');
+var_dump($rebelShip->getFavoriteJedi());
+$ships[] = $rebelShip;
 
 $errorMessage = '';
 if (isset($_GET['error'])) {
