@@ -48,7 +48,7 @@ class Container
     }
 
     /**
-     * @return PdoShipStorage
+     * @return AbstractShipStorage
      */
     public function getShipStorage()
     {
