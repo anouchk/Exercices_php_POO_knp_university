@@ -24,4 +24,8 @@ class RebelShip extends Ship {
     	$val .= ' (Rebel)';
     	return $val;
     }
+
+    public function getJediFactor() {
+    	return rand(10,30);
+    }
 }
