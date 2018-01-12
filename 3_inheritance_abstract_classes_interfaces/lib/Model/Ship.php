@@ -55,18 +55,18 @@ class Ship
         if ($useShortFormat) {
             return sprintf(
                 '%s: %s/%s/%s',
-                $this->name,
-                $this->weaponPower,
-                $this->jediFactor,
-                $this->strength
+                $this->getName(),
+                $this->getWeaponPower(),
+                $this->getJediFactor(),
+                $this->getStrength()
             );
         } else {
             return sprintf(
                 '%s: w:%s, j:%s, s:%s',
-                $this->name,
-                $this->weaponPower,
-                $this->jediFactor,
-                $this->strength
+                $this->getName(),
+                $this->getWeaponPower(),
+                $this->getJediFactor(),
+                $this->getStrength()
             );
         }
     }
