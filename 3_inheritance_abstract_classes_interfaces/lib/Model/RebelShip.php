@@ -20,6 +20,7 @@ class RebelShip extends Ship {
 
     public function getNameAndSpecs($useShortFormat = false)
     {
+
         if ($useShortFormat) {
             return sprintf(
                 '%s: %s/%s/%s (Rebel)',
