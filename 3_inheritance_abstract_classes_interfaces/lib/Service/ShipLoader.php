@@ -14,9 +14,9 @@ class ShipLoader
      */
     public function getShips()
     {
+        $ships = array();
         $shipsData = $this->shipStorage->fetchAllShipsData();
 
-        $ships = array();
         foreach ($shipsData as $shipData) {
             $ships[] = $this->createShipFromData($shipData);
         }
