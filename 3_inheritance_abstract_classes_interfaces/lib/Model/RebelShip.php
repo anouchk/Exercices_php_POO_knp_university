@@ -1,6 +1,6 @@
 <?php
 
-class RebelShip extends Ship {
+class RebelShip extends AbstractShip {
 
 	public function getFavoriteJedi() {
 		$coolJedis = array('Yoda', 'Ben Kenobi');
