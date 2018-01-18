@@ -9,6 +9,8 @@ $ships = $shipLoader->getShips();
 $brokenShip = new BrokenShip('Just a hunk of metal');
 $ships[] = $brokenShip;
 
+$battleTYpes = BattleManager::getAllBattleTypesWithDescription();
+
 $errorMessage = '';
 if (isset($_GET['error'])) {
     switch ($_GET['error']) {
@@ -93,6 +95,7 @@ if (isset($_GET['error'])) {
             <div class="battle-box center-block border">
                 <div>
                     <form method="POST" action="battle.php">
+
                         <h2 class="text-center">The Mission</h2>
                         <input class="center-block form-control text-field" type="text" name="ship1_quantity" placeholder="Enter Number of Ships" />
                         <select class="center-block form-control btn drp-dwn-width btn-default dropdown-toggle" name="ship1_id">
@@ -104,6 +107,7 @@ if (isset($_GET['error'])) {
                             <?php endforeach; ?>
                         </select>
                         <br>
+
                         <p class="text-center">AGAINST</p>
                         <br>
                         <input class="center-block form-control text-field" type="text" name="ship2_quantity" placeholder="Enter Number of Ships" />
@@ -118,11 +122,11 @@ if (isset($_GET['error'])) {
 
                         <br>
                         <div class="text-center">
-                            <label  for="battle_type">Battle TYpe</label>
-                            <select class="center-block form-control btn drp-dwn-width btn-default dropdown-toggle" name="battle_type" id="battle_type">
-                                <option value="<?php echo BattleManager::TYPE_NORMAL ?>">Normal</option>
-                                <option value="<?php echo BattleManager::TYPE_NO_JEDI ?>">No Jedi Powers</option>
-                                <option value="<?php echo BattleManager::TYPE_ONLY_JEDI ?>">Only Jedi Powers</option>
+                            <label  for="battle_type">Battle Type</label>
+                            <select name='battle_type' id='battle_type' class="center-block form-control btn drp-dwn-width btn-default dropdown-toggle" >
+                                <?php foreach ($battleTypes as $battleType => $typeText) : ?>
+                                    <option value="<?php echo $battleType ?>"><?php echo $typeText; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
 
