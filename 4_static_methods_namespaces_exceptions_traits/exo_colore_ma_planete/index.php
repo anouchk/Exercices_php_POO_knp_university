@@ -2,7 +2,12 @@
 
 require __DIR__ . '/PlanetRenderer.php';
 require __DIR__ . '/PlanetInterface.php';
-require __DIR__ . '/RandomlyColoredPlanet.php';
+
+spl_autoload_register(function($className) {
+    if ($className == 'Model\Planet\RandomlyColoredPlanet') {
+        require __DIR__.'/RandomlyColoredPlanet.php';
+    }
+});
 
 use Model\Planet\RandomlyColoredPlanet;
 use Service\PlanetRenderer;
