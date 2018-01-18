@@ -1,5 +1,9 @@
 <?php
 
+namespace Service;
+
+use PlanetInterface;
+
 class PlanetRenderer
 {
     public function render(PlanetInterface $planet)
