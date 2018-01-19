@@ -7,7 +7,6 @@ spl_autoload_register(function ($class) {
 use Model\Planet\RandomlyColoredPlanet;
 use Model\Planet\GasPlanet;
 use Model\Planet\SolidPlanet;
-use Model\Planet\PlanetInterface;
 use Service\PlanetRenderer;
 
 $planet1 = new GasPlanet(GasPlanet::MATERIAL_AMMONIA, 49);
