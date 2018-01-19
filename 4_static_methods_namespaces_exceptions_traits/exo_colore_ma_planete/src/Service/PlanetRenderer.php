@@ -2,7 +2,7 @@
 
 namespace Service;
 
-use PlanetInterface;
+use Model\Planet\PlanetInterface;
 
 class PlanetRenderer
 {

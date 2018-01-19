@@ -1,18 +1,20 @@
 <?php
 
-require __DIR__ . '/PlanetRenderer.php';
-require __DIR__ . '/PlanetInterface.php';
-
-spl_autoload_register(function($className) {
-    if ($className == 'Model\Planet\RandomlyColoredPlanet') {
-        require __DIR__.'/RandomlyColoredPlanet.php';
-    }
+spl_autoload_register(function ($class) {
+    require __DIR__ . '/src/' . str_replace('\\', '/', $class) . '.php';
 });
 
 use Model\Planet\RandomlyColoredPlanet;
+use Model\Planet\GasPlanet;
+use Model\Planet\SolidPlanet;
+use Model\Planet\PlanetInterface;
 use Service\PlanetRenderer;
 
-$planet = new RandomlyColoredPlanet('0969F9', 'F96909');
+$planet1 = new GasPlanet(GasPlanet::MATERIAL_AMMONIA, 49);
+$planet2 = new SolidPlanet(27, '353535');
+$planet3 = new RandomlyColoredPlanet('0969F9', 'F96909');
 
 $renderer = new PlanetRenderer();
-echo $renderer->render($planet);
+echo $renderer->render($planet1);
+echo $renderer->render($planet2);
+echo $renderer->render($planet3);

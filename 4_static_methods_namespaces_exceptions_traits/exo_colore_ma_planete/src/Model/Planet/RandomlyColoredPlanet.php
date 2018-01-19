@@ -2,8 +2,6 @@
 
 namespace Model\Planet;
 
-use PlanetInterface;
-
 class RandomlyColoredPlanet implements PlanetInterface
 {
     private $color1;

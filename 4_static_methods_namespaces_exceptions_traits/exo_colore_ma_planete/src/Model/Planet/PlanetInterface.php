@@ -1,5 +1,7 @@
 <?php
 
+namespace Model\Planet;
+
 interface PlanetInterface
 {
     /**
