@@ -59,7 +59,12 @@ class ShipLoader
 
     private function queryForShips()
     {
-        return $this->shipStorage->fetchAllShipsData();
+        try {
+            return $this->shipStorage->fetchAllShipsData();
+        } catch (\Exception $e) {
+            $shipsData=[];
+        }
     }
+        
 }
 
