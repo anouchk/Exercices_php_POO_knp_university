@@ -19,10 +19,13 @@ class ShipLoader
      */
     public function getShips()
     {
+        try {
+            return $this->shipStorage->fetchAllShipsData();
+        } catch (\Exception $e) {
+            $shipsData=[];
+        }
+
         $ships = array();
-
-        $shipsData = $this->queryForShips();
-
         foreach ($shipsData as $shipData) {
             $ships[] = $this->createShipFromData($shipData);
         }
@@ -55,16 +58,6 @@ class ShipLoader
         $ship->setStrength($shipData['strength']);
 
         return $ship;
-    }
-
-    private function queryForShips()
-    {
-        try {
-            return $this->shipStorage->fetchAllShipsData();
-        } catch (\Exception $e) {
-            $shipsData=[];
-        }
-    }
-        
+    }   
 }
 
