@@ -3,7 +3,7 @@
 namespace Model;
 
 // ShipCollection is a class, but its only purpose is to be a wrap around an array
-class ShipCollection implements \ArrayAccess
+class ShipCollection implements \ArrayAccess, \IteratorAggregate
 
 {
 
@@ -39,5 +39,19 @@ class ShipCollection implements \ArrayAccess
     {
         unset($this->ships[$offset]);
     }
+
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->ships);
+	}
+
+	public function removeAllBrokenShips() 
+	{
+		foreach ($this->ships as $key => $ship) {
+			if (!$ship->isFunctional()) {
+				unset($this->ships[$key]); 
+			}
+		}
+	}
 	
 }
