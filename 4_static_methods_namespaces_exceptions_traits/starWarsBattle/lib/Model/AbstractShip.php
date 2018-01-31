@@ -121,4 +121,10 @@ abstract class AbstractShip
     {
         $this->id = $id;
     }
+
+    public function __toString() 
+    {
+        return $this->getName();
+
+    }
 }
