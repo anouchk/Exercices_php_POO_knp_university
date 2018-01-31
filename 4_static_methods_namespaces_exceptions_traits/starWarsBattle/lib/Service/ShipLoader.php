@@ -19,20 +19,33 @@ class ShipLoader
      */
     public function getShips()
     {
+        
+        $ships = array();
         try {
-            return $this->shipStorage->fetchAllShipsData();
-        } catch (\Exception $e) {
-            trigger_error('Exception! '. $e->getMessage());
+            $shipsData = $this->shipStorage->fetchAllShipsData();
+        } catch (\PDOException $e) {
+            // var_dump($e);
+            trigger_error('Database Exception! '. $e->getMessage());
             $shipsData=[];
         }
-
-        $ships = array();
+        // $shipsData = $this->queryForShips();
         foreach ($shipsData as $shipData) {
             $ships[] = $this->createShipFromData($shipData);
         }
 
         return $ships;
     }
+
+    // private function queryForShips()
+    // {
+    //     try {
+    //         return $this->shipStorage->fetchAllShipsData();
+    //     } catch (\PDOException $e) {
+    //         // var_dump($e);
+    //         trigger_error('Database Exception! '. $e->getMessage());
+    //         $shipsData=[];
+    //     }
+    // }
 
     /**
      * @param $id
