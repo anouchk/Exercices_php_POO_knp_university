@@ -37,6 +37,11 @@ class GasPlanet implements PlanetInterface
         }
     }
 
+    public function __destruct()
+    {
+        echo $this->name;
+    }
+
     public static function getAllElements()
     {
         return [
