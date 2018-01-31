@@ -30,6 +30,13 @@ class GasPlanet implements PlanetInterface
         return $this->getName();
     }
 
+    public function __set($name, $value)
+    {
+        if ('name' === $name) {
+            $this->name = $value;
+        }
+    }
+
     public static function getAllElements()
     {
         return [

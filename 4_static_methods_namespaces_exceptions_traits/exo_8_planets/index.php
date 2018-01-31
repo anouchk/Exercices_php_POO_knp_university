@@ -18,6 +18,7 @@ $planets = [
     new GasPlanet('Uranus', GasPlanet::MATERIAL_METHANE, 51),
 ];
 $neptune = new GasPlanet('Neptune', GasPlanet::MATERIAL_HYDROGEN, 49);
+$neptune->name = 'Nep-Toon!'; // this is a silly name
 $planets[] = $neptune;
 
 ?>
