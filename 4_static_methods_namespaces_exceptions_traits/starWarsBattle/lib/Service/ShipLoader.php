@@ -5,6 +5,7 @@ use Model\RebelShip;
 use Model\Ship;
 use Model\AbstractShip;
 use Model\ShipCollection;
+use Model\BountyHunterShip;
 
 class ShipLoader
 {
@@ -21,7 +22,6 @@ class ShipLoader
     public function getShips()
     {
         
-        $ships = array();
         try {
             $shipsData = $this->shipStorage->fetchAllShipsData();
         } catch (\PDOException $e) {
@@ -29,24 +29,17 @@ class ShipLoader
             trigger_error('Database Exception! '. $e->getMessage());
             $shipsData=[];
         }
-        // $shipsData = $this->queryForShips();
+
+        $ships = array();
         foreach ($shipsData as $shipData) {
             $ships[] = $this->createShipFromData($shipData);
         }
 
+        // Boba Fett's ship
+        $ships[] = new BountyHunterShip('Slave I');
+
         return new ShipCollection($ships);
     }
-
-    // private function queryForShips()
-    // {
-    //     try {
-    //         return $this->shipStorage->fetchAllShipsData();
-    //     } catch (\PDOException $e) {
-    //         // var_dump($e);
-    //         trigger_error('Database Exception! '. $e->getMessage());
-    //         $shipsData=[];
-    //     }
-    // }
 
     /**
      * @param $id
