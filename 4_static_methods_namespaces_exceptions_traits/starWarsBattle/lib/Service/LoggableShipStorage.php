@@ -20,7 +20,15 @@ class LoggableShipStorage implements ShipStorageInterface
 
 	public function fetchAllShipsData()
 	{
-		return $this->shipStorage->fetchAllShipsData();
+		$ships = $this->shipStorage->fetchAllShipsData();
+		$this->log(sprintf('Just fetched %s ships', count($ships)));
+		return $ships;
+	}
+
+	private function log($message)
+    {
+        // todo - actually log this somewhere, instead of printing!
+        echo $message;
 	}
 
 	public function fetchSingleShipData($id)
