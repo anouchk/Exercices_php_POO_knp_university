@@ -18,7 +18,7 @@ class LoggableShipStorage implements ShipStorageInterface
 
 	}
 
-	public function fetchAllShipData()
+	public function fetchAllShipsData()
 	{
 		return $this->shipStorage->fetchAllShipsData();
 	}
