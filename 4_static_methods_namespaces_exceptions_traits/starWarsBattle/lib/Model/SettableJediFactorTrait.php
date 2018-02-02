@@ -13,7 +13,7 @@ trait SettableJediFactorTrait
 
 	}
 
-	public function setJefiFactor($jediFactor) {
+	public function setJediFactor($jediFactor) {
 		$this->jediFactor = $jediFactor;
 	}
 }
